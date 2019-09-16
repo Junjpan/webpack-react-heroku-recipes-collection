@@ -1,0 +1,188 @@
+
+@import '~bootstrap/scss/bootstrap';//same to @import '../node_modules/bootstrap/scss/bootstrap.scss' ;
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Pacifico');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css");
+
+$deepblue: #032f3e;
+$offbrown: #190c00;
+$lightblue: lighten($deepblue,80%);
+$cursive:"Dancing Script", cursive;
+$lightgray:#c9ced6;
+
+@mixin mediaChange($size){
+  @media screen and (max-width:$size){
+    @content;
+  }
+}
+
+@mixin title {
+  font-weight: bold;
+  font-family: $cursive;
+  font-size: 70px;
+  text-align: left;
+  margin-top: 15px;
+  margin-left: 5%;
+  color: $deepblue;
+  z-index:-1;
+}
+
+
+@mixin button{
+    background-color:$deepblue;
+    width:150px;
+    height:50px;
+    margin:30px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+       &:hover{
+      background-color: lighten($deepblue,10%);
+    }
+}
+
+@mixin form{
+   z-index:10;
+  top:0px;
+   background-color:gray; 
+  width:60%; 
+  height:80%;
+  position:absolute;
+  margin:5% 20%;
+  padding:10px;
+  color: $deepblue;
+  font-weight:bold;
+  box-shadow: 10px 10px 5px 2px rgba(0,0,0,0.75);
+}
+.recipe-details{
+  @include form;
+   img{
+      width:60%;
+      height:30%;
+    } 
+  font-weight:normal;
+ float:left;
+  overflow:scroll;
+  
+
+}
+
+.add-recipe-form{
+  @include form;
+  font-size:15px;
+  display:none;
+   textarea,input{
+    width:80%;
+    margin-left:10%;
+  }
+  label{
+    margin-left:10%;
+  }
+  button{
+    @include button;
+    margin-left:10%;
+  }
+}
+.recipe{
+  font-size:60px;
+  z-index:15;
+}
+body{
+  background-color:$lightblue;
+}
+#background {
+  position:fixed;
+  background-image: url("http://images.media-allrecipes.com/images/74497.jpg");
+  background-repeat: no-repeat;
+ opacity:0.5;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-10;
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%); 
+}
+
+.title1 {
+  @include title;
+}
+.title2{
+ @include title;
+  font-size:25px;
+  margin-left: 20%;
+  font-weight:normal;
+}
+.menu {
+  font-size: 15px;
+  color:$offbrown;
+  table {
+    display:inline-bloack;
+    float: left; 
+    margin-top:30px;
+
+}/*attention*/
+  .btn-primary{
+    @include button;
+    top:10px;
+    margin-left: 5%;
+    position:relative;
+  }
+}
+#app{
+  z-index:10;
+}
+
+table{
+  width:400px;
+  height:250px;
+  margin-left: 5%; 
+  
+}
+.table-bordered{
+    border:white solid 3px;
+    box-shadow: 5px 5px 6px 0px rgba(0,0,0,0.75);
+    @include mediaChange(600px){
+  text-align:center; 
+  }
+  }
+
+.recipe-name{
+  font-size:18px;
+  text-align:center;
+  color:white;
+  background-color: gray;
+  &:hover{
+    cursor:pointer;
+    color:$deepblue;
+  }
+}
+
+.zmdi-open-in-new{
+  color:$deepblue;
+}
+
+.recipeitem{
+  float:right;
+  margin-right:25%;
+  position:relative;
+   @include mediaChange(900px){
+      float:left;
+     
+    }
+  button {
+    @include button;
+  }
+}
+.zmdi-close{
+  float:right;
+  margin-right:5%;
+  color:$deepblue;
+  &:hover{
+    color:gray;
+  }
+}
+input:focus,textarea:focus{
+  background-color:$lightgray;
+  border:$deepblue 2px solid;
+}
+
