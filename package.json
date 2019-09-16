@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "heroku-prebuild":"npm install --dev",
     "start": "webpack-dev-server --config webpack.config.js -p",
-    "build": "webpack --config webpack.config.js -p"
+    "build": "webpack --config webpack.config.js -p",
+    "heroku-prebuild":"npm install --dev"
   },
   "author": "Jun Pan",
   "license": "ISC",
