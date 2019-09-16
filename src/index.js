@@ -69,28 +69,6 @@ class RecipeItem extends React.Component {
     );
   }
 }
-/** 
-var defaultRecipies=[ {
-  id: uuid.v4(),
-  img:
-    "https://images.media-allrecipes.com/userphotos/720x405/667748.jpg",
-  name: "Spaghetti Sauce with Ground Beef",
-  ingridents:
-    "lb. lean ground beef \n\n 1 sweet onion, diced \n\n 4 cloves garlic, minced \n\n 2 3/4 c. water\n\n15 oz. canned tomato sauce\n\n 15 oz. canned diced tomatoes, drained\n\n1 tbsp. dried Italian seasoning\n1 tsp. kosher salt\n\n1 tsp. Freshly ground black pepper\n\n1/2 tsp. sugar\n\n12 oz. spaghetti\n\n1/2 c. freshly grated Parmesan\n\n2 tbsp. chopped parsley",
-  directions:
-    "In a Dutch oven over medium-high heat, add beef, onion, and garlic and cook until beef is cooked through. Drain fat.Add water, tomato sauce, diced tomatoes, Italian seasoning, salt, pepper, and sugar. Bring to a boil over high heat. Break spaghetti noodles in half and add to pan. Reduce heat to a simmer and cover. Cook, stirring often, until noodles are cooked through, 12 to 15 minutes.Stir in the Parmesan and parsley just before serving"
-},
-{
-  id: uuid.v4(),
-  img:
-    "https://static01.nyt.com/images/2014/04/29/dining/Roasted-Brussels-Sprouts/Roasted-Brussels-Sprouts-articleLarge-v3.jpg",
-  name: "Roasted Brussels Sprouts With Garlic",
-  ingridents:
-    "1 pint brussels sprouts (about a pound)\n\n 4 to 6 tablespoons extra virgin olive oil, to coat bottom of pan\n\n5 cloves garlic, peeled\n\nSalt and pepper to taste\n\n1 tablespoon balsamic vinegar",
-  directions:
-    "Heat oven to 400 degrees. Trim bottom of brussels sprouts, and slice each in half top to bottom. Heat oil in cast-iron pan over medium-high heat until it shimmers; put sprouts cut side down in one layer in pan. Put in garlic, and sprinkle with salt and pepper.Cook, undisturbed, until sprouts begin to brown on bottom, and transfer to oven. Roast, shaking pan every 5 minutes, until sprouts are quite brown and tender, about 10 to 20 minutes.Taste, and add more salt and pepper if necessary. Stir in balsamic vinegar, and serve hot or warm."
-}]; 
-*/
 
 class Recipe extends React.Component {
   constructor() {
@@ -106,8 +84,8 @@ class Recipe extends React.Component {
 
 
   componentWillMount(){
-    var recipeFromStorage;
-    if (localStorage.getItem("recipe")===null||recipeFromStorage.lenght===0){
+    var recipeFromStorage=JSON.parse(localStorage.getItem("recipe"));
+    if (localStorage.getItem("recipe")===null||recipeFromStorage.length===0){
     var recipeArr=[ {
           id: uuid.v4(),
           img:
@@ -131,7 +109,7 @@ class Recipe extends React.Component {
     var recipeJSON=JSON.stringify(recipeArr);
     //console.log(recipeJSON);
     localStorage.setItem("recipe",recipeJSON);
-    recipeFromStorage=JSON.parse(localStorage.getItem("recipe"));
+    recipeFromStorage=JSON.parse(localStorage.getItem("recipe"))
     //console.log(recipeFromStorage);
     this.setState({recipe:recipeFromStorage});}
     else {
@@ -157,6 +135,7 @@ class Recipe extends React.Component {
     this.setState({ recipe:arrFromStorage});
     //console.log(arr);
   }
+  
   addRecipeForm() {
     $(".add-recipe-form").css("display", "block");
   }

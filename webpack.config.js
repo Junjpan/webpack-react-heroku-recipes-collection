@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin=require('mini-css-extract-plugin');
 const {CleanWebpackPlugin}=require('clean-webpack-plugin');
 const PORT=process.env.PORT||5000;
-const HOST='0.0.0.0';
+const HOST='localhost'||'0.0.0.0';
 
 
 module.exports = {
