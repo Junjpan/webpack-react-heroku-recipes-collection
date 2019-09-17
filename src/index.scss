@@ -116,16 +116,18 @@ filter: grayscale(100%);
   font-size: 15px;
   color:$offbrown;
   table {
-    display:inline-bloack;
-    float: left; 
-    margin-top:30px;
-
-}/*attention*/
-  .btn-primary{
+      float: left; 
+      margin-top:30px;}
+  .btn-primary,.add{
     @include button;
     top:10px;
     margin-left: 5%;
     position:relative;
+  }
+}
+.search{
+  .btn-primary{
+    @include button;
   }
 }
 #app{
@@ -169,7 +171,7 @@ table{
       float:left;
      
     }
-  button {
+  button{
     @include button;
   }
 }
@@ -185,4 +187,13 @@ input:focus,textarea:focus{
   background-color:$lightgray;
   border:$deepblue 2px solid;
 }
-
+.searchForm{
+  float:right;
+  display:none;
+ position:absolute;
+  top:45%;
+  margin-left:20%;
+  input{
+    background-color:$lightgray;
+  }
+}
